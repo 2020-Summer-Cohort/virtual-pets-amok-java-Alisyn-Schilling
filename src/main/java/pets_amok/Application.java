@@ -66,7 +66,7 @@ public class Application {
         } else if (input == 7) {
             scanner.nextLine();
             adoptPet(scanner, shelter);
-        } else if (input == 8){
+        } else if (input == 8) {
             scanner.nextLine();
             admitPet(scanner, shelter);
         }
@@ -136,6 +136,7 @@ public class Application {
         }
         System.out.println(name + " has been added to the shelter.");
     }
+
     public static int shelterHelp(Scanner scanner, int input) {
         while ((input > 8) || (input < 0)) {
             System.out.println("Please enter a number between 0 and 8:");
@@ -164,6 +165,7 @@ public class Application {
         }
         return petType;
     }
+
     public static void getPetsStatus(VirtualPetShelter shelter) {
         shelter.calculateAllPetHappiness();
         getCatStatus(shelter);
@@ -171,7 +173,8 @@ public class Application {
         getRobotPetStatus(shelter);
         System.out.println();
     }
-    public static void getCatStatus(VirtualPetShelter shelter){
+
+    public static void getCatStatus(VirtualPetShelter shelter) {
         System.out.println("Cat Status");
         System.out.println("Name    |Health  |Hunger  |Thirst  |Boredom");
         System.out.println("--------|--------|--------|--------|-------");
@@ -209,7 +212,8 @@ public class Application {
             }
         }
     }
-    public static void getDogStatus(VirtualPetShelter shelter){
+
+    public static void getDogStatus(VirtualPetShelter shelter) {
         System.out.println("Dog Status");
         System.out.println("Name    |Health  |Hunger  |Thirst  |Boredom |Cage Dirt");
         System.out.println("--------|--------|--------|--------|--------|--------");
@@ -253,13 +257,14 @@ public class Application {
             }
         }
     }
-    public static void getRobotPetStatus(VirtualPetShelter shelter){
+
+    public static void getRobotPetStatus(VirtualPetShelter shelter) {
         System.out.println("Robot Pet Status");
         System.out.println("Name    |Type    |Health  |Oil Level|Boredom");
         System.out.println("--------|--------|--------|---------|--------");
         for (VirtualPet virtualPet : shelter.getAllPets()) {
             String robotType = "Cat     ";
-            if (virtualPet instanceof VirtualRobotDog){
+            if (virtualPet instanceof VirtualRobotDog) {
                 robotType = "Dog     ";
             }
             if (virtualPet instanceof VirtualRobotPet) {

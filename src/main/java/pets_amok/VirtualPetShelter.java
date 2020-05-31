@@ -14,35 +14,37 @@ public class VirtualPetShelter {
     public VirtualPet getPetFromShelter(String name) {
         return petShelter.get(name);
     }
-    public Collection<VirtualPet> getAllPets(){
+
+    public Collection<VirtualPet> getAllPets() {
         return petShelter.values();
     }
 
     public void feedAllPets(int food) {
-        for(VirtualPet pet: petShelter.values()){
-            if (pet instanceof VirtualOrganicPet){
+        for (VirtualPet pet : petShelter.values()) {
+            if (pet instanceof VirtualOrganicPet) {
                 ((VirtualOrganicPet) pet).feed(food);
             }
         }
     }
+
     public void waterAllPets(int water) {
-        for(VirtualPet pet: petShelter.values()){
-            if (pet instanceof VirtualOrganicPet){
+        for (VirtualPet pet : petShelter.values()) {
+            if (pet instanceof VirtualOrganicPet) {
                 ((VirtualOrganicPet) pet).water(water);
             }
         }
     }
 
     public void walkAllDogs() {
-        for(VirtualPet pet: petShelter.values()){
-            if (pet instanceof Walking){
+        for (VirtualPet pet : petShelter.values()) {
+            if (pet instanceof Walking) {
                 ((Walking) pet).walk();
             }
         }
     }
 
     public void tickAllPets() {
-        for(VirtualPet pet: petShelter.values()){
+        for (VirtualPet pet : petShelter.values()) {
             pet.tick();
         }
     }
@@ -53,8 +55,8 @@ public class VirtualPetShelter {
     }
 
     public void cleanDogCages(int clean) {
-        for (VirtualPet pet: petShelter.values()){
-            if(pet instanceof VirtualDog){
+        for (VirtualPet pet : petShelter.values()) {
+            if (pet instanceof VirtualDog) {
                 ((VirtualDog) pet).cleanCage(clean);
             }
         }
@@ -69,7 +71,7 @@ public class VirtualPetShelter {
     }
 
     public void addOilToAllPets(int oilToAdd) {
-        for (VirtualPet pet: petShelter.values()) {
+        for (VirtualPet pet : petShelter.values()) {
             if (pet instanceof VirtualRobotPet) {
                 ((VirtualRobotPet) pet).addOil(oilToAdd);
             }
@@ -77,7 +79,7 @@ public class VirtualPetShelter {
     }
 
     public void calculateAllPetHappiness() {
-        for (VirtualPet pet: petShelter.values()){
+        for (VirtualPet pet : petShelter.values()) {
             pet.calculateHealth();
         }
     }

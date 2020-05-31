@@ -6,19 +6,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class VirtualPetShelterTest {
     @Test
-    public void canCreateShelter(){
+    public void canCreateShelter() {
         VirtualPetShelter underTest = new VirtualPetShelter();
     }
+
     @Test
-    public void canAddPetToShelter(){
+    public void canAddPetToShelter() {
         VirtualPetShelter underTest = new VirtualPetShelter();
         VirtualPet underTestPet = new VirtualCat("Taz", "Cat", 51, 52, 53);
         underTest.add(underTestPet);
         VirtualPet pet = underTest.getPetFromShelter("Taz");
         assertEquals("Taz", pet.getName());
     }
+
     @Test
-    public void canFeedAllOrganicPets(){
+    public void canFeedAllOrganicPets() {
         VirtualPetShelter underTest = new VirtualPetShelter();
         VirtualPet underTestPet = new VirtualCat("Taz", "Cat", 51, 52, 53);
         VirtualPet underTestRobotPet = new VirtualRobotCat("Runtime", "Robot Cat", 25, 53);
@@ -26,10 +28,11 @@ public class VirtualPetShelterTest {
         underTest.add(underTestRobotPet);
         underTest.feedAllPets(10);
         VirtualPet pet = underTest.getPetFromShelter("Taz");
-        assertEquals(41, ((VirtualOrganicPet)pet).getHunger());
+        assertEquals(41, ((VirtualOrganicPet) pet).getHunger());
     }
+
     @Test
-    public void canWaterAllOrganicPets(){
+    public void canWaterAllOrganicPets() {
         VirtualPetShelter underTest = new VirtualPetShelter();
         VirtualPet underTestPet = new VirtualCat("Taz", "Cat", 51, 52, 53);
         VirtualPet underTestRobotPet = new VirtualRobotCat("Runtime", "Robot Cat", 25, 53);
@@ -37,10 +40,11 @@ public class VirtualPetShelterTest {
         underTest.add(underTestRobotPet);
         underTest.waterAllPets(10);
         VirtualPet pet = underTest.getPetFromShelter("Taz");
-        assertEquals(42, ((VirtualOrganicPet)pet).getThirst());
+        assertEquals(42, ((VirtualOrganicPet) pet).getThirst());
     }
+
     @Test
-    public void canOilAllRobotPets(){
+    public void canOilAllRobotPets() {
         VirtualPetShelter underTest = new VirtualPetShelter();
         VirtualPet underTestRobotDog = new VirtualRobotDog("Taz", "RobotDog", 25, 53);
         VirtualPet underTestRobotCat = new VirtualRobotCat("Runtime", "Robot Cat", 25, 53);
@@ -53,8 +57,9 @@ public class VirtualPetShelterTest {
         assertEquals(35, ((VirtualRobotPet) pet2).getOilLevels());
 
     }
+
     @Test
-    public void canTickAllPets(){
+    public void canTickAllPets() {
         VirtualPetShelter underTest = new VirtualPetShelter();
         VirtualPet underTestPet = new VirtualCat("Taz", "Cat", 51, 52, 53);
         VirtualPet underTestRobotPet = new VirtualRobotCat("Runtime", "Robot Cat", 25, 53);
@@ -63,13 +68,14 @@ public class VirtualPetShelterTest {
         underTest.tickAllPets();
         VirtualPet pet = underTest.getPetFromShelter("Taz");
         VirtualPet pet2 = underTest.getPetFromShelter("Runtime");
-        assertEquals(56, ((VirtualOrganicPet)pet).getHunger());
-        assertEquals(15, ((VirtualRobotPet)pet2).getOilLevels());
+        assertEquals(56, ((VirtualOrganicPet) pet).getHunger());
+        assertEquals(15, ((VirtualRobotPet) pet2).getOilLevels());
     }
+
     @Test
-    public void canWalkAllDogs(){
+    public void canWalkAllDogs() {
         VirtualPetShelter underTest = new VirtualPetShelter();
-        VirtualPet underTestPet = new VirtualDog("Taz", "Dog",51, 52, 53);
+        VirtualPet underTestPet = new VirtualDog("Taz", "Dog", 51, 52, 53);
         VirtualPet underTestRobotPet = new VirtualRobotDog("Runtime", "Robot Dog", 25, 53);
         underTest.add(underTestPet);
         underTest.add(underTestRobotPet);
@@ -77,9 +83,10 @@ public class VirtualPetShelterTest {
         underTest.walkAllDogs();
         VirtualPet pet = underTest.getPetFromShelter("Taz");
         VirtualPet pet2 = underTest.getPetFromShelter("Runtime");
-        assertEquals(20, ((Walking)pet).getWalkHappiness());
-        assertEquals(20, ((Walking)pet2).getWalkHappiness());
+        assertEquals(20, ((Walking) pet).getWalkHappiness());
+        assertEquals(20, ((Walking) pet2).getWalkHappiness());
     }
+
     @Test
     public void canPlayWithAPet() {
         VirtualPetShelter underTest = new VirtualPetShelter();
@@ -91,8 +98,9 @@ public class VirtualPetShelterTest {
         VirtualPet pet = underTest.getPetFromShelter("Taz");
         assertEquals(43, pet.getBoredom());
     }
+
     @Test
-    public void canCleanDogCages(){
+    public void canCleanDogCages() {
         VirtualPetShelter underTest = new VirtualPetShelter();
         VirtualPet underTestPet = new VirtualDog("Taz", "Dog", 51, 52, 53);
         underTest.add(underTestPet);
@@ -100,19 +108,21 @@ public class VirtualPetShelterTest {
         VirtualPet pet = underTest.getPetFromShelter("Taz");
         assertEquals(10, ((VirtualDog) pet).getCageDirtLevel());
     }
+
     @Test
-    public void canRemovePetFromShelter(){
+    public void canRemovePetFromShelter() {
         VirtualPetShelter underTest = new VirtualPetShelter();
-        VirtualPet underTestPet = new VirtualDog("Taz", "Dog",51, 52, 53);
-        VirtualPet underTestRobotPet = new VirtualRobotDog("Runtime","RobotDog", 25, 53);
+        VirtualPet underTestPet = new VirtualDog("Taz", "Dog", 51, 52, 53);
+        VirtualPet underTestRobotPet = new VirtualRobotDog("Runtime", "RobotDog", 25, 53);
         underTest.add(underTestPet);
         underTest.add(underTestRobotPet);
         underTest.remove("Taz");
         VirtualPet pet = underTest.getPetFromShelter("Taz");
         assertNull(pet);
     }
+
     @Test
-    public void canCheckIfPetIsInShelter(){
+    public void canCheckIfPetIsInShelter() {
         VirtualPetShelter underTest = new VirtualPetShelter();
         VirtualPet underTestPet = new VirtualDog("Taz", "Dog", 51, 52, 53);
         VirtualPet underTestRobotPet = new VirtualRobotDog("Runtime", "RobotDog", 25, 53);
@@ -120,8 +130,9 @@ public class VirtualPetShelterTest {
         underTest.add(underTestRobotPet);
         assertTrue(underTest.isInShelter("Taz"));
     }
+
     @Test
-    public void canCalculateHealthAllPets(){
+    public void canCalculateHealthAllPets() {
         VirtualPetShelter underTest = new VirtualPetShelter();
         VirtualPet underTestPet = new VirtualDog("Taz", "Dog", 51, 52, 53);
         VirtualPet underTestRobotPet = new VirtualRobotDog("Runtime", "RobotDog", 25, 53);

@@ -2,10 +2,12 @@ package pets_amok;
 
 public class VirtualRobotDog extends VirtualRobotPet implements Walking {
     private int walkHappiness;
-    public VirtualRobotDog(String name,String description, int oilLevel, int boredom) {
-        super(name, description,oilLevel, boredom);
+
+    public VirtualRobotDog(String name, String description, int oilLevel, int boredom) {
+        super(name, description, oilLevel, boredom);
         this.walkHappiness = 15;
     }
+
     @Override
     public int getWalkHappiness() {
         return walkHappiness;
@@ -20,8 +22,9 @@ public class VirtualRobotDog extends VirtualRobotPet implements Walking {
     @Override
     public void tick() {
         super.tick();
-        walkHappiness -=1;
+        walkHappiness -= 1;
     }
+
     @Override
     public void calculateHealth() {
         super.calculateHealth();
